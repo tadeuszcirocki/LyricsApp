@@ -31,8 +31,8 @@ namespace LyricsApp.Controllers
 
         public IActionResult GetLyricsByArtistAndTitle(Data _artist, Data _title)
         {
-            var lyricsObj = _apiClient.GetLyrics(_artist.artist, _title.title);
-            return View(lyricsObj.Result);
+            Task<LyricsApiModel> lyricsObj = _apiClient.GetLyrics(_artist.artist, _title.title);
+            return View(model: lyricsObj.Result); //przekazujemy model     
         }
     }
 }

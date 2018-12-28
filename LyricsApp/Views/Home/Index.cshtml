@@ -1,0 +1,18 @@
+﻿@model LyricsApp.Models.Data
+
+@{
+    Layout = null;
+}
+<body>
+    <form asp-controller="Home" asp-action="GetLyricsByArtistAndTitle" method="get">
+
+        <label asp-for="artist">Artist:</label>
+        <input asp-for="artist" />
+
+        <label asp-for="title">Title:</label>
+        <input asp-for="title" />
+        <input type="submit" value="Submit">
+
+
+    </form>
+</body>

@@ -1,5 +1,5 @@
 # LyricsApp
-ASP.NET Core MVC web application using lyrics.ovh API
+ASP.NET Core MVC web application that uses lyrics.ovh API
 
 
 API:

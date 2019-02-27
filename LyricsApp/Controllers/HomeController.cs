@@ -23,6 +23,11 @@ namespace LyricsApp.Controllers
             return View();
         }
 
+        public IActionResult IndexWithError()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
@@ -32,7 +37,14 @@ namespace LyricsApp.Controllers
         public IActionResult GetLyricsByArtistAndTitle(Data _artist, Data _title)
         {
             Task<LyricsApiModel> lyricsObj = _apiClient.GetLyrics(_artist.artist, _title.title);
-            return View(model: lyricsObj.Result); //przekazujemy model     
+            try
+            {
+                return View(lyricsObj.Result); //przekazujemy model     
+            }
+            catch(AggregateException)
+            {
+                return RedirectToAction(nameof(IndexWithError));
+            }
         }
     }
 }

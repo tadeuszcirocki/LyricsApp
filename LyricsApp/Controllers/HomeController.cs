@@ -11,7 +11,7 @@ namespace LyricsApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IApiClient _apiClient; //DI - jeden ApiClient na caly kontroler
+        private readonly IApiClient _apiClient; //DI - one ApiClient for whole controller
 
         public HomeController(IApiClient apiClient) //
         {
@@ -34,12 +34,12 @@ namespace LyricsApp.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult GetLyricsByArtistAndTitle(Data _artist, Data _title)
+        public IActionResult GetLyricsByArtistAndTitle(Data song)
         {
-            Task<LyricsApiModel> lyricsObj = _apiClient.GetLyrics(_artist.artist, _title.title);
+            Task<LyricsApiModel> lyricsObj = _apiClient.GetLyrics(song.artist, song.title);
             try
             {
-                return View(lyricsObj.Result); //przekazujemy model     
+                return View(lyricsObj.Result);      //passing model to view
             }
             catch(AggregateException)
             {

@@ -35,7 +35,7 @@ namespace LyricsApp
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddSingleton<IApiClient, ApiClient>(); //DI, DIP z SOLIDa
+            services.AddSingleton<IApiClient, ApiClient>(); //DI, DIP from SOLID
 
         }
 

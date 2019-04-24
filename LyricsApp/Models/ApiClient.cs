@@ -1,4 +1,5 @@
 ﻿using LyricsApp.Models.Interfaces;
+using LyricsApp.Models.ViewModels;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

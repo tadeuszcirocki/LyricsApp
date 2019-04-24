@@ -1,23 +1,22 @@
-﻿@model LyricsApp.Models.Data
-
+﻿@model Tuple<IEnumerable<LyricsApp.Models.Database.FavouriteSong>, LyricsApp.Models.ViewModels.Data>
 
 <body>
     <form asp-controller="Home" asp-action="GetLyricsByArtistAndTitle" method="get">
         <p>
             <center>
-                <label asp-for="artist">Artist:</label>
-                <input asp-for="artist" value="Metallica" />
+                <label asp-for="Item2.artist">Artist:</label>
+                <input asp-for="Item2.artist" value="Metallica" />
 
                 <br />
 
-                <label asp-for="title">Title:&nbsp;&nbsp;</label>
-                <input asp-for="title" value="One" />
+                <label asp-for="Item2.title">Title:&nbsp;&nbsp;</label>
+                <input asp-for="Item2.title" value="One" />
                 <br /><br />
                 <input type="submit" value="Get lyrics">
                 <br /><br />
-                <p>
-                    Oops, something went horribly wrong. Please try again.
-                </p>
+        <p>
+            Oops, something went horribly wrong. Please try again.
+        </p>
 
             </center>
         </p>

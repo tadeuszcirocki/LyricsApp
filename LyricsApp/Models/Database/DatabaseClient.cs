@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace LyricsApp.Models.ViewModels
+namespace LyricsApp.Models.Database
 {
-    public class LyricsApiModel
+    public class DatabaseClient
     {
-        public string lyrics { get; set; }
+
     }
 }

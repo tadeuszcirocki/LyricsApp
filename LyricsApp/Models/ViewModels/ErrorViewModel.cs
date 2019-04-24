@@ -1,6 +1,6 @@
 using System;
 
-namespace LyricsApp.Models
+namespace LyricsApp.Models.ViewModels
 {
     public class ErrorViewModel
     {

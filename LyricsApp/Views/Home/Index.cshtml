@@ -1,23 +1,23 @@
-﻿@model Tuple<IEnumerable<LyricsApp.Models.Database.FavouriteSong>,LyricsApp.Models.ViewModels.Data>
+﻿@model LyricsApp.Models.ViewModels.IndexPageModel
 
 <body>
     <form asp-controller="Home" asp-action="GetLyricsByArtistAndTitle" method="get">
         <p>
             <center>
-                <label asp-for="Item2.artist">Artist:</label>
-                <input asp-for="Item2.artist" value="Metallica" />
+                <label asp-for="data.artist">Artist:</label>
+                <input asp-for="data.artist" value="Metallica" />
 
                 <br />
 
-                <label asp-for="Item2.title">Title:&nbsp;&nbsp;</label>
-                <input asp-for="Item2.title" value="One" />
+                <label asp-for="data.title">Title:&nbsp;&nbsp;</label>
+                <input asp-for="data.title" value="One" />
                 <br /><br />
                 <input type="submit" value="Get lyrics">
             </center>
         </p>
         <p>
             <h3>Your favourite songs:</h3>
-            @foreach (var item in Model.Item1)
+            @foreach (var item in Model.favouriteSong)
             {
                 <p>
                 @Html.DisplayFor(m => item.Title)

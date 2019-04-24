@@ -23,8 +23,8 @@ namespace LyricsApp.Controllers
 
         public IActionResult Index()
         {
-            var tuple = Tuple.Create<IEnumerable<FavouriteSong>,Data>(_db.Songs.ToList(), null);
-            return View(tuple);
+            var pageData = new IndexPageModel(null,_db.Songs.ToList());
+            return View(pageData);
         }
 
         public IActionResult IndexWithError()
@@ -38,9 +38,9 @@ namespace LyricsApp.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult GetLyricsByArtistAndTitle(Data Item2)
+        public IActionResult GetLyricsByArtistAndTitle(IndexPageModel obj)
         {
-            Task<LyricsApiModel> lyricsObj = _apiClient.GetLyrics(Item2.artist, Item2.title);
+            Task<LyricsApiModel> lyricsObj = _apiClient.GetLyrics(obj.data.artist, obj.data.title);
             try
             {
                 return View(lyricsObj.Result);      //passing model to view

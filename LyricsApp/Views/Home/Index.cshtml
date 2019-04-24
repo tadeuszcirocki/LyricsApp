@@ -16,7 +16,15 @@
             </center>
         </p>
         <p>
-
+            <h3>Your favourite songs:</h3>
+            @foreach (var item in Model.Item1)
+            {
+                <p>
+                @Html.DisplayFor(m => item.Title)
+                by
+                @Html.DisplayFor(m => item.Artist)
+                </p>
+            }
         </p>
 
     </form>

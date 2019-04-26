@@ -8,6 +8,6 @@ namespace LyricsApp.Models.Interfaces
 {
     public interface IApiClient
     {
-        Task<LyricsApiModel> GetLyrics(string artist, string title);
+        Task<DisplayLyricsPageModel> GetLyrics(string artist, string title);
     }
 }

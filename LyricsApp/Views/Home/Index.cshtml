@@ -15,17 +15,25 @@
                 <input type="submit" value="Get lyrics">
             </center>
         </p>
-        <p>
-            <h3>Your favourite songs:</h3>
-            @foreach (var item in Model.favouriteSong)
-            {
-                <p>
-                @Html.DisplayFor(m => item.Title)
-                by
-                @Html.DisplayFor(m => item.Artist)
-                </p>
-            }
-        </p>
-
     </form>
+    <div>
+        <h3>Your favourite songs:</h3>
+        @foreach (var item in Model.favouriteSong)
+        {
+            <div>
+                <h4>
+                    @Html.DisplayFor(m => item.Title)
+                    by
+                    @Html.DisplayFor(m => item.Artist)
+                    
+                </h4>
+                <form asp-action="RemoveFromFavourites">
+                    <input asp-for="song.ID" value="@item.ID" type="hidden" />
+                    <input type="submit" value="X" />
+                </form>
+            </div>
+        }
+    </div>
+
+
 </body>

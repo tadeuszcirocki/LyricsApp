@@ -11,7 +11,7 @@ namespace LyricsApp.Models
 {
     public class ApiClient : IApiClient
     {
-        public async Task<LyricsApiModel> GetLyrics(string artist, string title)
+        public async Task<DisplayLyricsPageModel> GetLyrics(string artist, string title)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -20,8 +20,7 @@ namespace LyricsApp.Models
                 response.EnsureSuccessStatusCode();
 
                 string stringResult = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<LyricsApiModel>(stringResult);
-
+                return JsonConvert.DeserializeObject<DisplayLyricsPageModel>(stringResult);
             }
         }
     }

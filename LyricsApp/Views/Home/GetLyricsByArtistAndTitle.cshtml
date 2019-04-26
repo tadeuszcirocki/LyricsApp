@@ -1,4 +1,4 @@
-﻿@model LyricsApp.Models.ViewModels.LyricsApiModel
+﻿@model LyricsApp.Models.ViewModels.DisplayLyricsPageModel
 
 <span style="white-space: pre-line">
     @{
@@ -11,6 +11,9 @@
     <br />
     
     <a asp-action="Index">Go back</a>
-
+    
+    <form asp-action="AddToFavourites">
+        <input type="submit" value="Add to favourites"/>
+    </form>
 
 </span>

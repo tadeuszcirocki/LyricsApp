@@ -21,13 +21,18 @@
         @foreach (var item in Model.favouriteSong)
         {
             <div>
-                <h4>
+                <h4 style="display: inline;">
                     @Html.DisplayFor(m => item.Title)
                     by
                     @Html.DisplayFor(m => item.Artist)
                     
                 </h4>
-                <form asp-action="RemoveFromFavourites">
+                <form asp-action="GetLyricsByArtistAndTitle" method="get" style="display: inline;">
+                    <input asp-for="data.artist" value="@item.Artist" type="hidden" />
+                    <input asp-for="data.title" value="@item.Title" type="hidden" />
+                    <input type="submit" value="View lyrics">
+                </form>
+                <form asp-action="RemoveFromFavourites" style="display: inline;">
                     <input asp-for="song.ID" value="@item.ID" type="hidden" />
                     <input type="submit" value="X" />
                 </form>

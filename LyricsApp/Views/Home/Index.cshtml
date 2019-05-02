@@ -1,24 +1,24 @@
 ﻿@model LyricsApp.Models.ViewModels.IndexPageModel
 
 <body>
-    <form asp-controller="Home" asp-action="GetLyricsByArtistAndTitle" method="get" style="margin: 50px">
+    <form asp-controller="Home" asp-action="GetLyricsByArtistAndTitle" method="get">
         <p>
             <center>
                 <label asp-for="data.artist">Artist:</label>
-                <input asp-for="data.artist" />
+                <input asp-for="data.artist" value="Metallica" />
 
                 <br />
 
                 <label asp-for="data.title">Title:&nbsp;&nbsp;</label>
-                <input asp-for="data.title" />
+                <input asp-for="data.title" value="One" />
                 <br /><br />
-                <input type="submit" value="Get lyrics" class="btn btn-primary btn-lg">
+                <input type="submit" value="Get lyrics">
             </center>
         </p>
     </form>
     <div>
         <h3>Your favourite songs:</h3>
-        @foreach (var item in Model.favouriteSongs)
+        @foreach (var item in Model.favouriteSong)
         {
             <div>
                 <h4 style="display: inline;">
@@ -30,11 +30,11 @@
                 <form asp-action="GetLyricsByArtistAndTitle" method="get" style="display: inline;">
                     <input asp-for="data.artist" value="@item.Artist" type="hidden" />
                     <input asp-for="data.title" value="@item.Title" type="hidden" />
-                    <input type="submit" value="View lyrics" class="btn btn-sm btn-success">
+                    <input type="submit" value="View lyrics">
                 </form>
                 <form asp-action="RemoveFromFavourites" style="display: inline;">
                     <input asp-for="song.ID" value="@item.ID" type="hidden" />
-                    <input type="submit" value="X" class="btn btn-sm btn-danger"/>
+                    <input type="submit" value="X" />
                 </form>
             </div>
         }

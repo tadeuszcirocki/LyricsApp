@@ -9,9 +9,9 @@ namespace LyricsApp.Models.ViewModels
 {
     public class IndexPageModel
     {
-        public IndexPageModel(IEnumerable<FavouriteSong> _favouriteSongs)
+        public IndexPageModel(IEnumerable<FavouriteSong> _favouriteSong)
         {
-            favouriteSongs = _favouriteSongs;
+            favouriteSong = _favouriteSong;
         }
 
         public IndexPageModel()
@@ -20,7 +20,7 @@ namespace LyricsApp.Models.ViewModels
         }
 
         public Data data { get; set; }
-        public IEnumerable <FavouriteSong> favouriteSongs { get; set; }
+        public IEnumerable <FavouriteSong> favouriteSong { get; set; }
         public FavouriteSong song { get; set; }
     }
 }

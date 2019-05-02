@@ -4,17 +4,16 @@
     @{
         ViewData["Title"] = "GetLyricsByArtistAndTitle";
     }
+    <h2>Lyrics:</h2>
+
+    @Model.lyrics
+
+    <br />
     
-    <center>
-        @Model.lyrics
-
-        <br />
-
-        <a asp-action="Index" class="btn btn-link">Go back</a>
-
-        <form asp-action="AddToFavourites">
-            <input type="submit" value="Add to favourites" class="btn btn-success" />
-        </form>
-    </center>
+    <a asp-action="Index">Go back</a>
+    
+    <form asp-action="AddToFavourites">
+        <input type="submit" value="Add to favourites"/>
+    </form>
 
 </span>

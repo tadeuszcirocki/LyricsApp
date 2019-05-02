@@ -22,7 +22,6 @@ namespace LyricsApp.Controllers
             _db = db;
         }
 
-
         public IActionResult Index()
         {
             var pageData = new IndexPageModel(_db.Songs.ToList());
@@ -31,8 +30,7 @@ namespace LyricsApp.Controllers
 
         public IActionResult IndexWithError()
         {
-            var pageData = new IndexPageModel(_db.Songs.ToList());
-            return View(pageData);
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
